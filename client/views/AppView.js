@@ -7,6 +7,7 @@ var AppView = Backbone.View.extend({
     this.songQueueView = new SongQueueView({collection: this.model.get('songQueue')}); //wip
 
     this.model.on('change:currentSong', function(model){
+      console.log("Current Song has been changed in AppView");
       this.playerView.setSong(model.get('currentSong'));
     }, this);
   },

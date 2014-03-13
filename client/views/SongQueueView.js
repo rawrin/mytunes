@@ -2,8 +2,15 @@ var SongQueueView = Backbone.View.extend({
   tagName: "table",
 
   initialize: function() {
+    this.collection.on('add', function() {
     this.render();
+    }, this);
   },
+
+  // events: {
+  //   'songEnded': function(){console.log('Song added')} 
+
+  // },
 
   render: function(){
     this.$el.children().detach();
