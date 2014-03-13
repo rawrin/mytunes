@@ -15,7 +15,6 @@ var PlayerView = Backbone.View.extend({
       //dequeue/shift off index 0,
       //delete from html
       this.model.dequeue();
-      console.log("IT ENDED!");
     } 
 
   },
