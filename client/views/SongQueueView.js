@@ -11,12 +11,7 @@ var SongQueueView = Backbone.View.extend({
     }, this);
 
   },
-
-  // events: {
-  //   'songEnded': function(){console.log('Song added')} 
-
-  // },
-
+  
   render: function(){
     this.$el.children().detach();
 

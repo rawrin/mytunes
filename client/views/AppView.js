@@ -6,11 +6,12 @@ var AppView = Backbone.View.extend({
   initialize: function(params){
     this.playerView = new PlayerView({model: this.model.get('currentSong')});
     this.libraryView = new LibraryView({collection: this.model.get('library')});
-    this.songQueueView = new SongQueueView({collection: this.model.get('songQueue')}); //wip
+    this.songQueueView = new SongQueueView({collection: this.model.get('songQueue')});
 
     this.model.on('change:currentSong', function(model){
-      console.log("Current Song has been changed in AppView");
-      $('.nowPlaying').html(this.template(this.model.get('currentSong').attributes));
+      if(this.model.get('songQueue').first()){
+        $('.nowPlaying').html(this.template(this.model.get('currentSong').attributes));
+      }
       this.playerView.setSong(model.get('currentSong'));
     }, this);
   },
@@ -19,7 +20,7 @@ var AppView = Backbone.View.extend({
     return this.$el.html([
       this.playerView.$el,
       this.libraryView.$el,
-      this.songQueueView.$el //wip
+      this.songQueueView.$el
     ]);
   }
 

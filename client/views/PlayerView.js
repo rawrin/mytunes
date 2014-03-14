@@ -11,9 +11,6 @@ var PlayerView = Backbone.View.extend({
 
   events: {
     'ended': function() {
-      //if songQueue has song in position 0, play (set currentSong to song)
-      //dequeue/shift off index 0,
-      //delete from html
       this.model.dequeue();
     } 
 
